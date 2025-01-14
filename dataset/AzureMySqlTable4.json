@@ -1,0 +1,44 @@
+{
+	"name": "AzureMySqlTable4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureMySqlUpsertToSQL",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"src_tabname": {
+				"type": "string",
+				"defaultValue": "@item().source.tableName"
+			}
+		},
+		"annotations": [],
+		"type": "AzureMySqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "LastName",
+				"scale": 0
+			},
+			{
+				"name": "FirstName",
+				"scale": 0
+			},
+			{
+				"name": "Age",
+				"precision": 10,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"tableName": {
+				"value": "@dataset().src_tabname",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

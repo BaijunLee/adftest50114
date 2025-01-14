@@ -1,0 +1,140 @@
+{
+	"name": "DatabricksParameter",
+	"properties": {
+		"activities": [
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Set variable1_copy1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					},
+					{
+						"activity": "Set variable1_copy1_copy1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/baili@mcpod.partner.onmschina.cn/test_adf_parameter",
+					"baseParameters": {
+						"tabname": {
+							"value": "@variables('tabfullname')",
+							"type": "Expression"
+						},
+						"schemaname": {
+							"value": "@variables('schema')",
+							"type": "Expression"
+						},
+						"catalogname": {
+							"value": "@variables('catalogname')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksbjucdbrtest3",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "tabfullname",
+					"value": {
+						"value": "@pipeline().parameters.testparameter1",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1_copy1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "schema",
+					"value": {
+						"value": "@pipeline().parameters.testparameter2",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1_copy1_copy1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "catalogname",
+					"value": {
+						"value": "@pipeline().parameters.testparameter3",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"testparameter1": {
+				"type": "string",
+				"defaultValue": "salesorderdetail"
+			},
+			"testparameter2": {
+				"type": "string",
+				"defaultValue": "testschema"
+			},
+			"testparameter3": {
+				"type": "string",
+				"defaultValue": "bjuc1"
+			}
+		},
+		"variables": {
+			"tabfullname": {
+				"type": "String",
+				"defaultValue": "''"
+			},
+			"schema": {
+				"type": "String"
+			},
+			"catalogname": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-11-14T05:26:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

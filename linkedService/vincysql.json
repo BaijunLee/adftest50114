@@ -1,0 +1,16 @@
+{
+	"name": "vincysql",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=vincyserver.database.chinacloudapi.cn;initial catalog=vincydb;user id=vincytian",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2ZTMxYjY1Yy1lZTU5LTQzNmMtODcwMy1iODZiY2FjZjdiZGMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

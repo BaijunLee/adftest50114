@@ -1,0 +1,30 @@
+{
+	"name": "adfToSynapse_copy1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[copytotrip2-1]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSynapseAnalyticsSP1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-01-03T06:25:33Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

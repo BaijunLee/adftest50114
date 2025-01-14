@@ -1,0 +1,39 @@
+{
+	"name": "testpython",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "testvaa",
+					"value": {
+						"value": "@pipeline().parameters.testseta",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"testseta": {
+				"type": "string",
+				"defaultValue": "\"aaa\""
+			}
+		},
+		"variables": {
+			"testvaa": {
+				"type": "String",
+				"defaultValue": "\"abc\""
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-01-10T11:38:27Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

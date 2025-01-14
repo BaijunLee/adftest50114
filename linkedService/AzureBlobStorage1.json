@@ -1,0 +1,12 @@
+{
+	"name": "AzureBlobStorage1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=baijunstg1v2;EndpointSuffix=core.chinacloudapi.cn;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDNDMDE4RDlDLTYxMkItNEIxMS1BNjE1LTJDMjNFRDZCRTE0QV80MWViN2Y1ZC03NGU4LTQwMGMtYjE0MS1hMDQyZmIzMTY3NTAiDQp9"
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"name": "yuandw",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=yuansqlserverce2.database.chinacloudapi.cn;initial catalog=yuansqldw;user id=sqladmin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3MDc0NWQzYy0yNDM3LTQ3ZTUtYjA2Ni0yNjg0ZDMzNDc3ZWUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "vincyshir",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

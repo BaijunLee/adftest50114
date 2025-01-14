@@ -1,0 +1,41 @@
+{
+	"name": "AzureSqlSampleTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azurebaijuntestsql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DateTime4",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Column1",
+				"type": "varchar"
+			},
+			{
+				"name": "Column2",
+				"type": "varchar"
+			},
+			{
+				"name": "Column3",
+				"type": "char"
+			},
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SampleTable"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

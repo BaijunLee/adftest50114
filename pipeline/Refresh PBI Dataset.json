@@ -1,0 +1,194 @@
+{
+	"name": "Refresh PBI Dataset",
+	"properties": {
+		"activities": [
+			{
+				"name": "AAD auth",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"headers": {
+						"content-type": "application/x-www-form-urlencoded"
+					},
+					"url": "https://login.partner.microsoftonline.cn/5691a5bf-29c0-43e2-b547-1377a4110078/oauth2/token",
+					"body": "grant_type=client_credentials&client_id=327a78a2-5222-4207-84ac-51a8362f8c59&client_secret=75_M17U0D9_-A~SboK~SYlb~G-a2Qnp0g4&resource=https://analysis.chinacloudapi.cn/powerbi/api"
+				}
+			},
+			{
+				"name": "Refresh Dataset",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "AAD auth",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"headers": {
+						"content-type": "application/x-www-form-urlencoded",
+						"Authorization": {
+							"value": "@concat(string(activity('AAD auth').output.token_type),' ',string(activity('AAD auth').output.access_token))",
+							"type": "Expression"
+						}
+					},
+					"url": "https://api.powerbi.cn/v1.0/myorg/groups/c0d63656-d3da-46be-9ce9-63d127ab925b/datasets/5b199cbb-76ee-4190-bb88-5984963ff042/refreshes",
+					"body": "notifyOption=NoNotification"
+				}
+			},
+			{
+				"name": "Get Last Refresh Result in a Loop",
+				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "Refresh Dataset",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@not(equals('Unknown',variables('Refresh Status') ))",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 10
+							}
+						},
+						{
+							"name": "Get Dataset Refresh Status",
+							"type": "WebActivity",
+							"dependsOn": [
+								{
+									"activity": "Wait1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"method": "GET",
+								"headers": {
+									"Authorization": {
+										"value": "@concat(string(activity('AAD auth').output.token_type),' ',string(activity('AAD auth').output.access_token))",
+										"type": "Expression"
+									}
+								},
+								"url": "https://api.powerbi.cn/v1.0/myorg/groups/c0d63656-d3da-46be-9ce9-63d127ab925b/datasets/5b199cbb-76ee-4190-bb88-5984963ff042/refreshes?$top=1"
+							}
+						},
+						{
+							"name": "Refresh Result",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Get Dataset Refresh Status",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Refresh Status",
+								"value": {
+									"value": "@activity('Get Dataset Refresh Status').output.value[0].status",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"timeout": "7.00:00:00"
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Get Last Refresh Result in a Loop",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(variables('Refresh Status'), 'Completed')",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Throw an Error",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"method": "POST",
+								"url": "https://invalidurl",
+								"body": {
+									"invalid": "invalid"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Refresh Status": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-01-03T06:25:33Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

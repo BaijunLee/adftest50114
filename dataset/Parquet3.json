@@ -1,0 +1,246 @@
+{
+	"name": "Parquet3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "test_pqt.parquet",
+				"container": "adfrowdel2"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "INT32"
+			},
+			{
+				"name": "gender",
+				"type": "INT32"
+			},
+			{
+				"name": "birthday",
+				"type": "INT96"
+			},
+			{
+				"name": "location",
+				"type": "UTF8"
+			},
+			{
+				"name": "channel",
+				"type": "UTF8"
+			},
+			{
+				"name": "referred_by",
+				"type": "UTF8"
+			},
+			{
+				"name": "added_by",
+				"type": "UTF8"
+			},
+			{
+				"name": "tags",
+				"type": "UTF8"
+			},
+			{
+				"name": "create_datetime",
+				"type": "INT96"
+			},
+			{
+				"name": "accept_terms_condition_datetime",
+				"type": "INT96"
+			},
+			{
+				"name": "accept_privacy_notice_datetime",
+				"type": "INT96"
+			},
+			{
+				"name": "sms_subscription",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "accept_sms_datetime",
+				"type": "INT96"
+			},
+			{
+				"name": "status",
+				"type": "INT32"
+			},
+			{
+				"name": "update_datetime",
+				"type": "INT96"
+			},
+			{
+				"name": "country",
+				"type": "UTF8"
+			},
+			{
+				"name": "province",
+				"type": "UTF8"
+			},
+			{
+				"name": "city",
+				"type": "UTF8"
+			},
+			{
+				"name": "district",
+				"type": "UTF8"
+			},
+			{
+				"name": "device",
+				"type": "UTF8"
+			},
+			{
+				"name": "latitude",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "longitude",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "latest_login",
+				"type": "INT96"
+			},
+			{
+				"name": "survey_flag",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "states",
+				"type": "UTF8"
+			},
+			{
+				"name": "postal_code",
+				"type": "UTF8"
+			},
+			{
+				"name": "firm_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "team_size",
+				"type": "INT32"
+			},
+			{
+				"name": "disabled_reason",
+				"type": "UTF8"
+			},
+			{
+				"name": "profile_completed",
+				"type": "UTF8"
+			},
+			{
+				"name": "age_range",
+				"type": "UTF8"
+			},
+			{
+				"name": "failed_times",
+				"type": "INT32"
+			},
+			{
+				"name": "post_office",
+				"type": "UTF8"
+			},
+			{
+				"name": "first_accept_tc_time",
+				"type": "INT96"
+			},
+			{
+				"name": "first_accept_pn_time",
+				"type": "INT96"
+			},
+			{
+				"name": "tc_time",
+				"type": "INT96"
+			},
+			{
+				"name": "tc_version",
+				"type": "UTF8"
+			},
+			{
+				"name": "pn_time",
+				"type": "INT96"
+			},
+			{
+				"name": "pn_version",
+				"type": "UTF8"
+			},
+			{
+				"name": "linked_facebook",
+				"type": "UTF8"
+			},
+			{
+				"name": "mc_cm_status",
+				"type": "UTF8"
+			},
+			{
+				"name": "is_mbr",
+				"type": "UTF8"
+			},
+			{
+				"name": "is_legacy",
+				"type": "UTF8"
+			},
+			{
+				"name": "is_profile",
+				"type": "UTF8"
+			},
+			{
+				"name": "login_count",
+				"type": "INT32"
+			},
+			{
+				"name": "latest_channel",
+				"type": "UTF8"
+			},
+			{
+				"name": "request_delete_time",
+				"type": "INT96"
+			},
+			{
+				"name": "delete_reason_type",
+				"type": "INT32"
+			},
+			{
+				"name": "delete_reason",
+				"type": "UTF8"
+			},
+			{
+				"name": "delete_time",
+				"type": "INT96"
+			},
+			{
+				"name": "first_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "last_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "r_gsp_user_version",
+				"type": "INT32"
+			},
+			{
+				"name": "r_gsp_company_version",
+				"type": "INT32"
+			},
+			{
+				"name": "r_tc_locale",
+				"type": "UTF8"
+			},
+			{
+				"name": "is_enable_nfc_write",
+				"type": "INT32"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
