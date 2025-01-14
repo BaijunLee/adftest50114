@@ -1,0 +1,110 @@
+{
+	"name": "AzureDatabricksDeltaLakeDataset1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDatabricksDeltaLake1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "test",
+			"table": "fi_table1"
+		},
+		"schema": [
+			{
+				"name": "DateID",
+				"type": "integer"
+			},
+			{
+				"name": "MedallionID",
+				"type": "integer"
+			},
+			{
+				"name": "HackneyLicenseID",
+				"type": "integer"
+			},
+			{
+				"name": "PickupTimeID",
+				"type": "integer"
+			},
+			{
+				"name": "DropoffTimeID",
+				"type": "integer"
+			},
+			{
+				"name": "PickupGeographyID",
+				"type": "integer"
+			},
+			{
+				"name": "DropoffGeographyID",
+				"type": "integer"
+			},
+			{
+				"name": "PickupLatitude",
+				"type": "double"
+			},
+			{
+				"name": "PickupLongitude",
+				"type": "double"
+			},
+			{
+				"name": "PickupLatLong",
+				"type": "string"
+			},
+			{
+				"name": "DropoffLatitude",
+				"type": "double"
+			},
+			{
+				"name": "DropoffLongitude",
+				"type": "double"
+			},
+			{
+				"name": "DropoffLatLong",
+				"type": "string"
+			},
+			{
+				"name": "PassengerCount",
+				"type": "integer"
+			},
+			{
+				"name": "TripDurationSeconds",
+				"type": "integer"
+			},
+			{
+				"name": "TripDistanceMiles",
+				"type": "double"
+			},
+			{
+				"name": "PaymentType",
+				"type": "string"
+			},
+			{
+				"name": "FareAmount",
+				"type": "double"
+			},
+			{
+				"name": "SurchargeAmount",
+				"type": "double"
+			},
+			{
+				"name": "TaxAmount",
+				"type": "double"
+			},
+			{
+				"name": "TipAmount",
+				"type": "double"
+			},
+			{
+				"name": "TollsAmount",
+				"type": "double"
+			},
+			{
+				"name": "TotalAmount",
+				"type": "double"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

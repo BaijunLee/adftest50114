@@ -1,0 +1,35 @@
+{
+	"name": "baijun-ADF2",
+	"properties": {
+		"globalParameters": {
+			"testpara1": {
+				"type": "string",
+				"value": "abc"
+			},
+			"testpara2": {
+				"type": "string",
+				"value": "def"
+			},
+			"tesepara3": {
+				"type": "string",
+				"value": "efg"
+			}
+		}
+	},
+	"location": "chinaeast2",
+	"identity": {
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "a9543a07-fd97-4bf6-b0ec-269e2ceeaf6a",
+		"tenantId": "954ddad8-66d7-47a8-8f9f-1316152d9587",
+		"userAssignedIdentities": {
+			"/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourcegroups/BJADFN3/providers/Microsoft.ManagedIdentity/userAssignedIdentities/bjusermin2": {
+				"clientId": "af9014aa-b828-4232-97f8-47f6c2cce6e3",
+				"principalId": "f4b114be-8d38-427c-b3ed-344b2a5e8d73"
+			},
+			"/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourcegroups/baijun-ADLS2-test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/baijun-identity1": {
+				"clientId": "f4fd5ddd-20e0-43ab-9537-5ca1b30267c5",
+				"principalId": "f5094889-fb2a-4642-aaea-d953f1fc4d9d"
+			}
+		}
+	}
+}

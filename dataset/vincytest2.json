@@ -1,0 +1,22 @@
+{
+	"name": "vincytest2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "vincymysql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureMySqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"precision": 19,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"tableName": "`test4`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

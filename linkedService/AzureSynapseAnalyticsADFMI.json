@@ -1,0 +1,11 @@
+{
+	"name": "AzureSynapseAnalyticsADFMI",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=dbpod-workspacev2.sql.azuresynapse.azure.cn;Initial Catalog=dbpodpool"
+		}
+	}
+}

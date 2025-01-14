@@ -1,0 +1,32 @@
+{
+	"name": "PremJson1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "adxeventtest"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"TimeStamp": {
+					"type": "string"
+				},
+				"Value": {
+					"type": "string"
+				},
+				"Source": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

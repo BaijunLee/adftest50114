@@ -1,0 +1,34 @@
+{
+	"name": "AzureMySqlJSONTEST",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureMySql2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TabName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureMySqlTable",
+		"schema": [
+			{
+				"name": "a",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "b",
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"tableName": {
+				"value": "@dataset().TabName",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "AzureSqlMITable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlMI1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlMITable",
+		"schema": [
+			{
+				"name": "a",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "b",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "testbcp"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

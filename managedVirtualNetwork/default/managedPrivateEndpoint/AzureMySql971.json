@@ -1,0 +1,10 @@
+{
+	"name": "AzureMySql971",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-mysql-test1/providers/Microsoft.DBforMySQL/servers/bjmysqltest",
+		"groupId": "mysqlServer",
+		"fqdns": [
+			"bjmysqltest.mysql.database.chinacloudapi.cn"
+		]
+	}
+}

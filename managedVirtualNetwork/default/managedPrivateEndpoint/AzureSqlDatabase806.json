@@ -1,0 +1,10 @@
+{
+	"name": "AzureSqlDatabase806",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-SQL-1/providers/Microsoft.Sql/servers/bjnrth2",
+		"groupId": "sqlServer",
+		"fqdns": [
+			"bjnrth2.database.chinacloudapi.cn"
+		]
+	}
+}

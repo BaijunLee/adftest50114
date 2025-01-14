@@ -1,0 +1,15 @@
+{
+	"name": "bklsmi1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=poddbws.sql.azuresynapse.azure.cn;Initial Catalog=sqlpool001",
+			"credential": {
+				"referenceName": "bjusermi1",
+				"type": "CredentialReference"
+			}
+		}
+	}
+}

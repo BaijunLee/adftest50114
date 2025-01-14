@@ -1,0 +1,27 @@
+{
+	"name": "Azureblobtosql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azurebaijuntestsql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "a",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "b",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "testbcp"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

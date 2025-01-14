@@ -1,0 +1,25 @@
+{
+	"name": "Eventtrigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline9",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/adftest/blobs/",
+			"blobPathEndsWith": "test.log",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-ADF2-RSG2/providers/Microsoft.Storage/storageAccounts/testtrigger1",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

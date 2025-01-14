@@ -1,0 +1,297 @@
+{
+	"name": "AzureMySqlTable6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureMySql2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureMySqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "gender",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "birthday",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "location",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "channel",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "referred_by",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "added_by",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "tags",
+				"precision": 200,
+				"scale": 0
+			},
+			{
+				"name": "create_datetime",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "accept_terms_condition_datetime",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "accept_privacy_notice_datetime",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "sms_subscription",
+				"precision": 3,
+				"scale": 0
+			},
+			{
+				"name": "accept_sms_datetime",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "status",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "update_datetime",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "country",
+				"precision": 200,
+				"scale": 0
+			},
+			{
+				"name": "province",
+				"precision": 200,
+				"scale": 0
+			},
+			{
+				"name": "city",
+				"precision": 244,
+				"scale": 0
+			},
+			{
+				"name": "district",
+				"precision": 200,
+				"scale": 0
+			},
+			{
+				"name": "device",
+				"precision": 150,
+				"scale": 0
+			},
+			{
+				"name": "latitude",
+				"precision": 15,
+				"scale": 0
+			},
+			{
+				"name": "longitude",
+				"precision": 15,
+				"scale": 0
+			},
+			{
+				"name": "latest_login",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "survey_flag",
+				"precision": 3,
+				"scale": 0
+			},
+			{
+				"name": "states",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "postal_code",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "firm_name",
+				"precision": 44,
+				"scale": 0
+			},
+			{
+				"name": "team_size",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "disabled_reason",
+				"precision": 250,
+				"scale": 0
+			},
+			{
+				"name": "profile_completed",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "age_range",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "failed_times",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "post_office",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "first_accept_tc_time",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "first_accept_pn_time",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "tc_time",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "tc_version",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "pn_time",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "pn_version",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "linked_facebook",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "mc_cm_status",
+				"precision": 2,
+				"scale": 0
+			},
+			{
+				"name": "is_mbr",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "is_legacy",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "is_profile",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "login_count",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "latest_channel",
+				"precision": 200,
+				"scale": 0
+			},
+			{
+				"name": "request_delete_time",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "delete_reason_type",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "delete_reason",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "delete_time",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "first_name",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "last_name",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "r_gsp_user_version",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "r_gsp_company_version",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "r_tc_locale",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "is_enable_nfc_write",
+				"precision": 10,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"tableName": "`testtab2`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

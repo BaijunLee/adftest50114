@@ -1,0 +1,16 @@
+{
+	"name": "AzureMySqlTable5",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "vincymysql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureMySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`test3`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
