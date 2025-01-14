@@ -1,0 +1,790 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "baijun-ADF2"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage1_ubuntu_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1_ubuntu'"
+		},
+		"AzureBlobTestTrigger2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobTestTrigger2'"
+		},
+		"AzureDataExplorer1_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureDataExplorer1'"
+		},
+		"AzureDataExplorer2_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureDataExplorer2'"
+		},
+		"AzureDataExplorer3_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureDataExplorer3'"
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDatabricks2_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks2'"
+		},
+		"AzureDatabricksDeltaLake2_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksDeltaLake2'"
+		},
+		"AzureDatabricksbjucdbrtest_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksbjucdbrtest'"
+		},
+		"AzureDatabricksbjucdbrtest3_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksbjucdbrtest3'"
+		},
+		"AzureMySql1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureMySql1'"
+		},
+		"AzureMySql2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureMySql2'"
+		},
+		"AzureMySqlMPE_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureMySqlMPE'"
+		},
+		"AzureMySqlUpsertToSQL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureMySqlUpsertToSQL'"
+		},
+		"AzurePostgreSql1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql1'"
+		},
+		"AzurePostgreSql2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql2'"
+		},
+		"AzurePostgreSql3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql3'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
+		"AzureSqlDatabase3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase3'"
+		},
+		"AzureSqlMI1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlMI1'"
+		},
+		"AzureSqlUpsert1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlUpsert1'"
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalytics1'"
+		},
+		"AzureSynapseAnalyticsADFMI_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalyticsADFMI'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=dbpod-workspacev2.sql.azuresynapse.azure.cn;Initial Catalog=dbpodpool"
+		},
+		"AzureSynapseAnalyticsSP1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalyticsSP1'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=dbpod-workspacev2.sql.azuresynapse.azure.cn;Initial Catalog=dbpodpool"
+		},
+		"AzureSynapseAnalyticsSP1_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureSynapseAnalyticsSP1'"
+		},
+		"AzureSynapseAnalyticsqlauth_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalyticsqlauth'"
+		},
+		"Azurebaijuntestsql1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Azurebaijuntestsql1'"
+		},
+		"Odbc1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Odbc1'"
+		},
+		"Odbc1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Odbc1'"
+		},
+		"PostgreSql1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'PostgreSql1'"
+		},
+		"SqlServer2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer2'"
+		},
+		"SqlServerSample_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServerSample'"
+		},
+		"baijunhdiblob1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'baijunhdiblob1'"
+		},
+		"bklsmi1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'bklsmi1'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=poddbws.sql.azuresynapse.azure.cn;Initial Catalog=sqlpool001"
+		},
+		"dbpodsynapse_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'dbpodsynapse'"
+		},
+		"dwsqlpool_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'dwsqlpool'"
+		},
+		"psqlvincysource_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'psqlvincysource'"
+		},
+		"stgadfinctest_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'stgadfinctest'"
+		},
+		"stgadfinctestsink_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'stgadfinctestsink'"
+		},
+		"vincydw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'vincydw'"
+		},
+		"vincymysql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'vincymysql'"
+		},
+		"vincypsqltarget_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'vincypsqltarget'"
+		},
+		"vincysql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'vincysql'"
+		},
+		"vincysqldw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'vincysqldw'"
+		},
+		"vincysqldw2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'vincysqldw2'"
+		},
+		"vincysynapse_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'vincysynapse'"
+		},
+		"yuandw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'yuandw'"
+		},
+		"AzureDataExplorer1_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://bjadx.chinanorth2.kusto.chinacloudapi.cn"
+		},
+		"AzureDataExplorer1_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"AzureDataExplorer1_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureDataExplorer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adxdb1"
+		},
+		"AzureDataExplorer2_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://bjadxn3.chinanorth3.kusto.chinacloudapi.cn"
+		},
+		"AzureDataExplorer2_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"AzureDataExplorer2_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureDataExplorer2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "bjadxdbn3"
+		},
+		"AzureDataExplorer3_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://bjadxce2.chinaeast2.kusto.chinacloudapi.cn"
+		},
+		"AzureDataExplorer3_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"AzureDataExplorer3_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureDataExplorer3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adxce2db"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://bjespadls2.dfs.core.chinacloudapi.cn"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://baijunadlsgen2.dfs.core.chinacloudapi.cn"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://testpremadx.dfs.core.chinacloudapi.cn/"
+		},
+		"AzureDatabricksbjucdbrtest3_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1016-085658-e1ol6de2"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://bjadfkeyvault.vault.azure.cn/"
+		},
+		"AzureSynapseAnalyticsSP1_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureSynapseAnalyticsSP1_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"Odbc1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "baijun@bjmysqltest"
+		},
+		"blobtrigger_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://testtrigger1.blob.core.chinacloudapi.cn"
+		},
+		"Eventtrigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-ADF2-RSG2/providers/Microsoft.Storage/storageAccounts/testtrigger1"
+		},
+		"Trigger_7ad_properties_pipeline_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"Trigger_7ad_properties_pipeline_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
+		},
+		"Tumblingadx_properties_pipeline_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"Tumblingadx_properties_pipeline_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
+		},
+		"trigger2_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-ADF2-RSG2/providers/Microsoft.Storage/storageAccounts/testtrigger1"
+		},
+		"AzureMySql971_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-mysql-test1/providers/Microsoft.DBforMySQL/servers/bjmysqltest"
+		},
+		"AzureMySql971_properties_groupId": {
+			"type": "string",
+			"defaultValue": "mysqlServer"
+		},
+		"AzureMySql971_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"bjmysqltest.mysql.database.chinacloudapi.cn"
+			]
+		},
+		"AzureSqlDatabase806_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-SQL-1/providers/Microsoft.Sql/servers/bjnrth2"
+		},
+		"AzureSqlDatabase806_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sqlServer"
+		},
+		"AzureSqlDatabase806_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"bjnrth2.database.chinacloudapi.cn"
+			]
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "baijun-ADF2_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage1_ubuntu_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_ubuntu_connectionString')]"
+					},
+					"AzureDataExplorer1_servicePrincipalKey": {
+						"value": "[parameters('AzureDataExplorer1_servicePrincipalKey')]"
+					},
+					"AzureDataExplorer2_servicePrincipalKey": {
+						"value": "[parameters('AzureDataExplorer2_servicePrincipalKey')]"
+					},
+					"AzureDataExplorer3_servicePrincipalKey": {
+						"value": "[parameters('AzureDataExplorer3_servicePrincipalKey')]"
+					},
+					"AzureDataLakeStorage3_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
+					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"AzureDatabricks2_accessToken": {
+						"value": "[parameters('AzureDatabricks2_accessToken')]"
+					},
+					"AzureDatabricksDeltaLake2_accessToken": {
+						"value": "[parameters('AzureDatabricksDeltaLake2_accessToken')]"
+					},
+					"AzureDatabricksbjucdbrtest_accessToken": {
+						"value": "[parameters('AzureDatabricksbjucdbrtest_accessToken')]"
+					},
+					"AzureDatabricksbjucdbrtest3_accessToken": {
+						"value": "[parameters('AzureDatabricksbjucdbrtest3_accessToken')]"
+					},
+					"AzureMySql1_connectionString": {
+						"value": "[parameters('AzureMySql1_connectionString')]"
+					},
+					"AzureMySql2_connectionString": {
+						"value": "[parameters('AzureMySql2_connectionString')]"
+					},
+					"AzureDataExplorer1_properties_typeProperties_endpoint": {
+						"value": "[parameters('AzureDataExplorer1_properties_typeProperties_endpoint')]"
+					},
+					"AzureDataExplorer1_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataExplorer1_properties_typeProperties_tenant')]"
+					},
+					"AzureDataExplorer1_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureDataExplorer1_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureDataExplorer1_properties_typeProperties_database": {
+						"value": "[parameters('AzureDataExplorer1_properties_typeProperties_database')]"
+					},
+					"AzureDataExplorer2_properties_typeProperties_endpoint": {
+						"value": "[parameters('AzureDataExplorer2_properties_typeProperties_endpoint')]"
+					},
+					"AzureDataExplorer2_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataExplorer2_properties_typeProperties_tenant')]"
+					},
+					"AzureDataExplorer2_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureDataExplorer2_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureDataExplorer2_properties_typeProperties_database": {
+						"value": "[parameters('AzureDataExplorer2_properties_typeProperties_database')]"
+					},
+					"AzureDataExplorer3_properties_typeProperties_endpoint": {
+						"value": "[parameters('AzureDataExplorer3_properties_typeProperties_endpoint')]"
+					},
+					"AzureDataExplorer3_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataExplorer3_properties_typeProperties_tenant')]"
+					},
+					"AzureDataExplorer3_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureDataExplorer3_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureDataExplorer3_properties_typeProperties_database": {
+						"value": "[parameters('AzureDataExplorer3_properties_typeProperties_database')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage3_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]"
+					},
+					"AzureDatabricksbjucdbrtest3_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricksbjucdbrtest3_properties_typeProperties_existingClusterId')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzurePostgreSql1_connectionString": {
+						"value": "[parameters('AzurePostgreSql1_connectionString')]"
+					},
+					"AzurePostgreSql2_connectionString": {
+						"value": "[parameters('AzurePostgreSql2_connectionString')]"
+					},
+					"AzurePostgreSql3_connectionString": {
+						"value": "[parameters('AzurePostgreSql3_connectionString')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureSqlDatabase2_connectionString": {
+						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
+					},
+					"AzureSqlDatabase3_connectionString": {
+						"value": "[parameters('AzureSqlDatabase3_connectionString')]"
+					},
+					"AzureSqlMI1_connectionString": {
+						"value": "[parameters('AzureSqlMI1_connectionString')]"
+					},
+					"AzureSynapseAnalytics1_connectionString": {
+						"value": "[parameters('AzureSynapseAnalytics1_connectionString')]"
+					},
+					"AzureSynapseAnalyticsADFMI_connectionString": {
+						"value": "[parameters('AzureSynapseAnalyticsADFMI_connectionString')]"
+					},
+					"AzureSynapseAnalyticsSP1_connectionString": {
+						"value": "[parameters('AzureSynapseAnalyticsSP1_connectionString')]"
+					},
+					"AzureSynapseAnalyticsSP1_servicePrincipalKey": {
+						"value": "[parameters('AzureSynapseAnalyticsSP1_servicePrincipalKey')]"
+					},
+					"AzureSynapseAnalyticsqlauth_connectionString": {
+						"value": "[parameters('AzureSynapseAnalyticsqlauth_connectionString')]"
+					},
+					"Azurebaijuntestsql1_connectionString": {
+						"value": "[parameters('Azurebaijuntestsql1_connectionString')]"
+					},
+					"PostgreSql1_connectionString": {
+						"value": "[parameters('PostgreSql1_connectionString')]"
+					},
+					"SqlServer2_connectionString": {
+						"value": "[parameters('SqlServer2_connectionString')]"
+					},
+					"SqlServerSample_connectionString": {
+						"value": "[parameters('SqlServerSample_connectionString')]"
+					},
+					"baijunhdiblob1_connectionString": {
+						"value": "[parameters('baijunhdiblob1_connectionString')]"
+					},
+					"dbpodsynapse_connectionString": {
+						"value": "[parameters('dbpodsynapse_connectionString')]"
+					},
+					"psqlvincysource_connectionString": {
+						"value": "[parameters('psqlvincysource_connectionString')]"
+					},
+					"stgadfinctest_connectionString": {
+						"value": "[parameters('stgadfinctest_connectionString')]"
+					},
+					"AzureSynapseAnalyticsSP1_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureSynapseAnalyticsSP1_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureSynapseAnalyticsSP1_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureSynapseAnalyticsSP1_properties_typeProperties_tenant')]"
+					},
+					"blobtrigger_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('blobtrigger_properties_typeProperties_serviceEndpoint')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"stgadfinctestsink_connectionString": {
+						"value": "[parameters('stgadfinctestsink_connectionString')]"
+					},
+					"vincymysql_connectionString": {
+						"value": "[parameters('vincymysql_connectionString')]"
+					},
+					"vincypsqltarget_connectionString": {
+						"value": "[parameters('vincypsqltarget_connectionString')]"
+					},
+					"vincysqldw_connectionString": {
+						"value": "[parameters('vincysqldw_connectionString')]"
+					},
+					"trigger2_properties_typeProperties_scope": {
+						"value": "[parameters('trigger2_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_3')]"
+			]
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_5",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_5.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobTestTrigger2_connectionString": {
+						"value": "[parameters('AzureBlobTestTrigger2_connectionString')]"
+					},
+					"AzureMySqlUpsertToSQL_connectionString": {
+						"value": "[parameters('AzureMySqlUpsertToSQL_connectionString')]"
+					},
+					"AzureSqlUpsert1_connectionString": {
+						"value": "[parameters('AzureSqlUpsert1_connectionString')]"
+					},
+					"Odbc1_connectionString": {
+						"value": "[parameters('Odbc1_connectionString')]"
+					},
+					"Odbc1_password": {
+						"value": "[parameters('Odbc1_password')]"
+					},
+					"bklsmi1_connectionString": {
+						"value": "[parameters('bklsmi1_connectionString')]"
+					},
+					"dwsqlpool_connectionString": {
+						"value": "[parameters('dwsqlpool_connectionString')]"
+					},
+					"vincydw_connectionString": {
+						"value": "[parameters('vincydw_connectionString')]"
+					},
+					"vincysql_connectionString": {
+						"value": "[parameters('vincysql_connectionString')]"
+					},
+					"vincysqldw2_connectionString": {
+						"value": "[parameters('vincysqldw2_connectionString')]"
+					},
+					"vincysynapse_connectionString": {
+						"value": "[parameters('vincysynapse_connectionString')]"
+					},
+					"yuandw_connectionString": {
+						"value": "[parameters('yuandw_connectionString')]"
+					},
+					"Odbc1_properties_typeProperties_userName": {
+						"value": "[parameters('Odbc1_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_4')]"
+			]
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_6",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_6.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureMySql971_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureMySql971_properties_privateLinkResourceId')]"
+					},
+					"AzureMySql971_properties_groupId": {
+						"value": "[parameters('AzureMySql971_properties_groupId')]"
+					},
+					"AzureMySql971_properties_fqdns": {
+						"value": "[parameters('AzureMySql971_properties_fqdns')]"
+					},
+					"AzureSqlDatabase806_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureSqlDatabase806_properties_privateLinkResourceId')]"
+					},
+					"AzureSqlDatabase806_properties_groupId": {
+						"value": "[parameters('AzureSqlDatabase806_properties_groupId')]"
+					},
+					"AzureSqlDatabase806_properties_fqdns": {
+						"value": "[parameters('AzureSqlDatabase806_properties_fqdns')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_5')]"
+			]
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_7",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_7.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureMySqlMPE_connectionString": {
+						"value": "[parameters('AzureMySqlMPE_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_6')]"
+			]
+		},
+		{
+			"name": "baijun-ADF2_ArmTemplate_8",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_8.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Trigger_7ad_properties_pipeline_parameters_windowStart": {
+						"value": "[parameters('Trigger_7ad_properties_pipeline_parameters_windowStart')]"
+					},
+					"Trigger_7ad_properties_pipeline_parameters_windowEnd": {
+						"value": "[parameters('Trigger_7ad_properties_pipeline_parameters_windowEnd')]"
+					},
+					"Tumblingadx_properties_pipeline_parameters_windowStart": {
+						"value": "[parameters('Tumblingadx_properties_pipeline_parameters_windowStart')]"
+					},
+					"Tumblingadx_properties_pipeline_parameters_windowEnd": {
+						"value": "[parameters('Tumblingadx_properties_pipeline_parameters_windowEnd')]"
+					},
+					"Eventtrigger1_properties_typeProperties_scope": {
+						"value": "[parameters('Eventtrigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'baijun-ADF2_ArmTemplate_7')]"
+			]
+		}
+	]
+}
