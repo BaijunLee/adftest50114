@@ -1,0 +1,268 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "baijun-ADF2"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1_ubuntu_connectionString": {
+			"value": ""
+		},
+		"AzureBlobTestTrigger2_connectionString": {
+			"value": ""
+		},
+		"AzureDataExplorer1_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureDataExplorer2_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureDataExplorer3_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricks2_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksDeltaLake2_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksbjucdbrtest_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksbjucdbrtest3_accessToken": {
+			"value": ""
+		},
+		"AzureMySql1_connectionString": {
+			"value": ""
+		},
+		"AzureMySql2_connectionString": {
+			"value": ""
+		},
+		"AzureMySqlMPE_connectionString": {
+			"value": ""
+		},
+		"AzureMySqlUpsertToSQL_connectionString": {
+			"value": ""
+		},
+		"AzurePostgreSql1_connectionString": {
+			"value": ""
+		},
+		"AzurePostgreSql2_connectionString": {
+			"value": ""
+		},
+		"AzurePostgreSql3_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_connectionString": {
+			"value": ""
+		},
+		"AzureSqlMI1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlUpsert1_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalyticsADFMI_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=dbpod-workspacev2.sql.azuresynapse.azure.cn;Initial Catalog=dbpodpool"
+		},
+		"AzureSynapseAnalyticsSP1_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=dbpod-workspacev2.sql.azuresynapse.azure.cn;Initial Catalog=dbpodpool"
+		},
+		"AzureSynapseAnalyticsSP1_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureSynapseAnalyticsqlauth_connectionString": {
+			"value": ""
+		},
+		"Azurebaijuntestsql1_connectionString": {
+			"value": ""
+		},
+		"Odbc1_connectionString": {
+			"value": ""
+		},
+		"Odbc1_password": {
+			"value": ""
+		},
+		"PostgreSql1_connectionString": {
+			"value": ""
+		},
+		"SqlServer2_connectionString": {
+			"value": ""
+		},
+		"SqlServerSample_connectionString": {
+			"value": ""
+		},
+		"baijunhdiblob1_connectionString": {
+			"value": ""
+		},
+		"bklsmi1_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=poddbws.sql.azuresynapse.azure.cn;Initial Catalog=sqlpool001"
+		},
+		"dbpodsynapse_connectionString": {
+			"value": ""
+		},
+		"dwsqlpool_connectionString": {
+			"value": ""
+		},
+		"psqlvincysource_connectionString": {
+			"value": ""
+		},
+		"stgadfinctest_connectionString": {
+			"value": ""
+		},
+		"stgadfinctestsink_connectionString": {
+			"value": ""
+		},
+		"vincydw_connectionString": {
+			"value": ""
+		},
+		"vincymysql_connectionString": {
+			"value": ""
+		},
+		"vincypsqltarget_connectionString": {
+			"value": ""
+		},
+		"vincysql_connectionString": {
+			"value": ""
+		},
+		"vincysqldw_connectionString": {
+			"value": ""
+		},
+		"vincysqldw2_connectionString": {
+			"value": ""
+		},
+		"vincysynapse_connectionString": {
+			"value": ""
+		},
+		"yuandw_connectionString": {
+			"value": ""
+		},
+		"AzureDataExplorer1_properties_typeProperties_endpoint": {
+			"value": "https://bjadx.chinanorth2.kusto.chinacloudapi.cn"
+		},
+		"AzureDataExplorer1_properties_typeProperties_tenant": {
+			"value": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"AzureDataExplorer1_properties_typeProperties_servicePrincipalId": {
+			"value": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureDataExplorer1_properties_typeProperties_database": {
+			"value": "adxdb1"
+		},
+		"AzureDataExplorer2_properties_typeProperties_endpoint": {
+			"value": "https://bjadxn3.chinanorth3.kusto.chinacloudapi.cn"
+		},
+		"AzureDataExplorer2_properties_typeProperties_tenant": {
+			"value": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"AzureDataExplorer2_properties_typeProperties_servicePrincipalId": {
+			"value": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureDataExplorer2_properties_typeProperties_database": {
+			"value": "bjadxdbn3"
+		},
+		"AzureDataExplorer3_properties_typeProperties_endpoint": {
+			"value": "https://bjadxce2.chinaeast2.kusto.chinacloudapi.cn"
+		},
+		"AzureDataExplorer3_properties_typeProperties_tenant": {
+			"value": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"AzureDataExplorer3_properties_typeProperties_servicePrincipalId": {
+			"value": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureDataExplorer3_properties_typeProperties_database": {
+			"value": "adxce2db"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://bjespadls2.dfs.core.chinacloudapi.cn"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://baijunadlsgen2.dfs.core.chinacloudapi.cn"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://testpremadx.dfs.core.chinacloudapi.cn/"
+		},
+		"AzureDatabricksbjucdbrtest3_properties_typeProperties_existingClusterId": {
+			"value": "1016-085658-e1ol6de2"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://bjadfkeyvault.vault.azure.cn/"
+		},
+		"AzureSynapseAnalyticsSP1_properties_typeProperties_servicePrincipalId": {
+			"value": "facb435b-47a3-4ce7-b0ef-dcbf7d97f76a"
+		},
+		"AzureSynapseAnalyticsSP1_properties_typeProperties_tenant": {
+			"value": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+		},
+		"Odbc1_properties_typeProperties_userName": {
+			"value": "baijun@bjmysqltest"
+		},
+		"blobtrigger_properties_typeProperties_serviceEndpoint": {
+			"value": "https://testtrigger1.blob.core.chinacloudapi.cn"
+		},
+		"Eventtrigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-ADF2-RSG2/providers/Microsoft.Storage/storageAccounts/testtrigger1"
+		},
+		"Trigger_7ad_properties_pipeline_parameters_windowStart": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"Trigger_7ad_properties_pipeline_parameters_windowEnd": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"Tumblingadx_properties_pipeline_parameters_windowStart": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"Tumblingadx_properties_pipeline_parameters_windowEnd": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"trigger2_properties_typeProperties_scope": {
+			"value": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-ADF2-RSG2/providers/Microsoft.Storage/storageAccounts/testtrigger1"
+		},
+		"AzureMySql971_properties_privateLinkResourceId": {
+			"value": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-mysql-test1/providers/Microsoft.DBforMySQL/servers/bjmysqltest"
+		},
+		"AzureMySql971_properties_groupId": {
+			"value": "mysqlServer"
+		},
+		"AzureMySql971_properties_fqdns": {
+			"value": [
+				"bjmysqltest.mysql.database.chinacloudapi.cn"
+			]
+		},
+		"AzureSqlDatabase806_properties_privateLinkResourceId": {
+			"value": "/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourceGroups/baijun-SQL-1/providers/Microsoft.Sql/servers/bjnrth2"
+		},
+		"AzureSqlDatabase806_properties_groupId": {
+			"value": "sqlServer"
+		},
+		"AzureSqlDatabase806_properties_fqdns": {
+			"value": [
+				"bjnrth2.database.chinacloudapi.cn"
+			]
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
