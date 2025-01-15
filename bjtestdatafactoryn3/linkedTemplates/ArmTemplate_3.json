@@ -1,0 +1,932 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "bjtestdatafactoryn3"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorerTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataExplorer1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureDataExplorerTable",
+				"schema": [],
+				"typeProperties": {
+					"table": "StormEvents"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorerTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataExplorer2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureDataExplorerTable",
+				"schema": [],
+				"typeProperties": {
+					"table": "StormEvents2"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorerTable3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataExplorer3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureDataExplorerTable",
+				"schema": [],
+				"typeProperties": {
+					"table": "TestTableb"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricksDeltaLakeDataset1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksDeltaLake1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureDatabricksDeltaLakeDataset",
+				"typeProperties": {
+					"database": "test",
+					"table": "fi_table1"
+				},
+				"schema": [
+					{
+						"name": "DateID",
+						"type": "integer"
+					},
+					{
+						"name": "MedallionID",
+						"type": "integer"
+					},
+					{
+						"name": "HackneyLicenseID",
+						"type": "integer"
+					},
+					{
+						"name": "PickupTimeID",
+						"type": "integer"
+					},
+					{
+						"name": "DropoffTimeID",
+						"type": "integer"
+					},
+					{
+						"name": "PickupGeographyID",
+						"type": "integer"
+					},
+					{
+						"name": "DropoffGeographyID",
+						"type": "integer"
+					},
+					{
+						"name": "PickupLatitude",
+						"type": "double"
+					},
+					{
+						"name": "PickupLongitude",
+						"type": "double"
+					},
+					{
+						"name": "PickupLatLong",
+						"type": "string"
+					},
+					{
+						"name": "DropoffLatitude",
+						"type": "double"
+					},
+					{
+						"name": "DropoffLongitude",
+						"type": "double"
+					},
+					{
+						"name": "DropoffLatLong",
+						"type": "string"
+					},
+					{
+						"name": "PassengerCount",
+						"type": "integer"
+					},
+					{
+						"name": "TripDurationSeconds",
+						"type": "integer"
+					},
+					{
+						"name": "TripDistanceMiles",
+						"type": "double"
+					},
+					{
+						"name": "PaymentType",
+						"type": "string"
+					},
+					{
+						"name": "FareAmount",
+						"type": "double"
+					},
+					{
+						"name": "SurchargeAmount",
+						"type": "double"
+					},
+					{
+						"name": "TaxAmount",
+						"type": "double"
+					},
+					{
+						"name": "TipAmount",
+						"type": "double"
+					},
+					{
+						"name": "TollsAmount",
+						"type": "double"
+					},
+					{
+						"name": "TotalAmount",
+						"type": "double"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureMySqlJSONTEST')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureMySql2",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"TabName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "AzureMySqlTable",
+				"schema": [
+					{
+						"name": "a",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "b",
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"tableName": {
+						"value": "@dataset().TabName",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureMySqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureMySql1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureMySqlTable",
+				"schema": [
+					{
+						"name": "a",
+						"type": "int",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "b",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "name",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "name1",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"tableName": "testbak"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureMySqlTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureMySql1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureMySqlTable",
+				"schema": [
+					{
+						"name": "a",
+						"type": "int",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "b",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "name",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "name1",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"tableName": "test"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureMySqlTable3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureMySql2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureMySqlTable",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "`test`"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureMySqlTable5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "vincymysql",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureMySqlTable",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "`test3`"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureMySqlTable6')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureMySql2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureMySqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "gender",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "birthday",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "location",
+						"precision": 50,
+						"scale": 0
+					},
+					{
+						"name": "channel",
+						"precision": 100,
+						"scale": 0
+					},
+					{
+						"name": "referred_by",
+						"precision": 100,
+						"scale": 0
+					},
+					{
+						"name": "added_by",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "tags",
+						"precision": 200,
+						"scale": 0
+					},
+					{
+						"name": "create_datetime",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "accept_terms_condition_datetime",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "accept_privacy_notice_datetime",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "sms_subscription",
+						"precision": 3,
+						"scale": 0
+					},
+					{
+						"name": "accept_sms_datetime",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "status",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "update_datetime",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "country",
+						"precision": 200,
+						"scale": 0
+					},
+					{
+						"name": "province",
+						"precision": 200,
+						"scale": 0
+					},
+					{
+						"name": "city",
+						"precision": 244,
+						"scale": 0
+					},
+					{
+						"name": "district",
+						"precision": 200,
+						"scale": 0
+					},
+					{
+						"name": "device",
+						"precision": 150,
+						"scale": 0
+					},
+					{
+						"name": "latitude",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "longitude",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "latest_login",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "survey_flag",
+						"precision": 3,
+						"scale": 0
+					},
+					{
+						"name": "states",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "postal_code",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "firm_name",
+						"precision": 44,
+						"scale": 0
+					},
+					{
+						"name": "team_size",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "disabled_reason",
+						"precision": 250,
+						"scale": 0
+					},
+					{
+						"name": "profile_completed",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "age_range",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "failed_times",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "post_office",
+						"precision": 100,
+						"scale": 0
+					},
+					{
+						"name": "first_accept_tc_time",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "first_accept_pn_time",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "tc_time",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "tc_version",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "pn_time",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "pn_version",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "linked_facebook",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "mc_cm_status",
+						"precision": 2,
+						"scale": 0
+					},
+					{
+						"name": "is_mbr",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "is_legacy",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "is_profile",
+						"precision": 1,
+						"scale": 0
+					},
+					{
+						"name": "login_count",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "latest_channel",
+						"precision": 200,
+						"scale": 0
+					},
+					{
+						"name": "request_delete_time",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "delete_reason_type",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "delete_reason",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "delete_time",
+						"precision": 19,
+						"scale": 0
+					},
+					{
+						"name": "first_name",
+						"precision": 100,
+						"scale": 0
+					},
+					{
+						"name": "last_name",
+						"precision": 100,
+						"scale": 0
+					},
+					{
+						"name": "r_gsp_user_version",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "r_gsp_company_version",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "r_tc_locale",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "is_enable_nfc_write",
+						"precision": 10,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"tableName": "`testtab2`"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzurePostgreSqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzurePostgreSql2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "val",
+						"precision": 53,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "test"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzurePostgreSqlTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzurePostgreSql3",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"tabname": {
+						"type": "string",
+						"defaultValue": "table01"
+					}
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "public",
+					"table": {
+						"value": "@dataset().tabname",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzurePostgreSqlTable3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "psqlvincysource",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "st_project_status",
+						"precision": 10,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "tt_project_header"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzurePostgreSqlTable4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "vincypsqltarget",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "st_project_status",
+						"precision": 10,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "tt_project_header"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlMITable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlMI1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlMITable",
+				"schema": [
+					{
+						"name": "a",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "b",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "testbcp"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlSampleTable')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Azurebaijuntestsql1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "DateTime4",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "Column1",
+						"type": "varchar"
+					},
+					{
+						"name": "Column2",
+						"type": "varchar"
+					},
+					{
+						"name": "Column3",
+						"type": "char"
+					},
+					{
+						"name": "ID",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "SampleTable"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Azurebaijuntestsql1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "cre_time",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "note",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "table01"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Azurebaijuntestsql1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "name",
+						"type": "varchar"
+					},
+					{
+						"name": "email",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "fi_table1_sql"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalyticsTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSynapseAnalytics1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [
+					{
+						"name": "a",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "b",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "dwtest"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
