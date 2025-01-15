@@ -1,16 +1,15 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "MySqlTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "MySql1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "AzureSqlTable",
+		"type": "MySqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "testupsertsql"
+			"tableName": "`test`"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

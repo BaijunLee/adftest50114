@@ -1,0 +1,15 @@
+{
+	"name": "bjadfn3",
+	"location": "chinanorth3",
+	"identity": {
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "ce5df3d3-a83c-401d-9a14-c5baf9a98798",
+		"tenantId": "954ddad8-66d7-47a8-8f9f-1316152d9587",
+		"userAssignedIdentities": {
+			"/subscriptions/fdcb27da-91d5-4223-b967-85cfbc459a75/resourcegroups/BJADFN3/providers/Microsoft.ManagedIdentity/userAssignedIdentities/bjusermin3": {
+				"clientId": "3158a3a1-788e-49b5-bfcb-7c4f1dc00f97",
+				"principalId": "f885b6f2-95c5-4c58-915b-62efce7b7edd"
+			}
+		}
+	}
+}

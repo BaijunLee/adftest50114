@@ -1,0 +1,9 @@
+{
+	"name": "bjtestdatafactoryn3",
+	"location": "chinanorth3",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "16a1ccae-fd06-4fd2-8337-2441ae108465",
+		"tenantId": "954ddad8-66d7-47a8-8f9f-1316152d9587"
+	}
+}

@@ -2,14 +2,39 @@
 	"name": "AzureMySqlTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureMySql2",
+			"referenceName": "AzureMySql1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureMySqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "a",
+				"type": "int",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "b",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "name",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "name1",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			}
+		],
 		"typeProperties": {
-			"tableName": "trip"
+			"tableName": "testbak"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
